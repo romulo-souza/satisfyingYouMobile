@@ -1,6 +1,5 @@
-/* eslint-disable react/no-unstable-nested-components */
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from './src/screens/Login';
 import NovaConta from './src/screens/NovaConta';
@@ -15,13 +14,28 @@ import Agradecimento from './src/screens/Agradecimento';
 import Tela_Relatorio from './src/screens/Tela_Relatorio';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import Orientation from 'react-native-orientation-locker';
 
 const Stack = createStackNavigator();
 
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: '#372775', //cor de fundo do app (evitar flash branco na transição entre telas)
+  },
+};
+
 const App = () => {
+
+  //travar orientação na horizontal
+  useEffect(() => {
+    Orientation.lockToLandscape();
+  }, []);
+
   return (
     <Provider store={store}>
-      <NavigationContainer>
+      <NavigationContainer theme={MyTheme}>
         <Stack.Navigator
           initialRouteName="Login"
           screenOptions={{
@@ -34,6 +48,7 @@ const App = () => {
             headerBackImage: () => (
               <Icon name="arrow-back" size={35} color="#573FBA" />
             ),
+            animation: 'slide_from_right', //animação mais suave de transição entre telas
           }}>
           <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
           <Stack.Screen name="NovaConta" component={NovaConta} options={{ headerTitle: 'Nova Conta' }} />
