@@ -1,5 +1,5 @@
 # satisfyingYouMobile
-Projeto desenvolvido para disciplina de Programação Para Dispositivos Móveis do curso de Engenharia de Computação (UTFPR-CP), utilizando o framework React Native para o front-end e Firebase para o back-end. O aplicativo consiste em um sistema de avaliação de pesquisas.
+Projeto desenvolvido para disciplina de Programação Para Dispositivos Móveis do curso de Engenharia de Computação (UTFPR-CP), utilizando o framework React Native para o front-end e Firebase para o back-end. O aplicativo consiste em um sistema de gerenciamento e avaliação de pesquisas.
 
 Integrantes: Rômulo Oliveira Souza, Guilherme Schmidt Lingnau, Victor Ribeiro Calado, Fernando Lima Fernandes, Paulo Cesar De Oliveira Mitsi
 
